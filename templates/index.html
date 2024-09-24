@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #587377; color: #151918;">
+    <div class="container">
+        <h1>Leave a Comment</h1>
+        <form action="/add_comment" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required> <br><hr>
+            <textarea name="comment" placeholder="Your Comment" required></textarea> <br><hr>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Comments</h2>
+        <div class="comments">
+            {% for comment in comments %}
+                <div class="comment">
+                    <h3>{{ comment['name'] }}</h3>
+                    <p>{{ comment['comment'] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
